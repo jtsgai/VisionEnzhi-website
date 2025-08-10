@@ -20,7 +20,7 @@
         .font-noto {
             font-family: 'Noto Sans SC', sans-serif;
         }
-        /* FIX: 增加 text-pretty 类来优化断行 */
+        /* 优化断行 */
         .text-pretty {
             text-wrap: pretty;
         }
@@ -78,13 +78,6 @@
             color: #0a0a0a;
             transform: scale(1.05);
         }
-        .logo-wall img {
-            filter: grayscale(100%) brightness(1.5);
-            transition: all 0.3s ease;
-        }
-        .logo-wall img:hover {
-            filter: grayscale(0%) brightness(1);
-        }
         [x-cloak] { display: none !important; }
     </style>
 </head>
@@ -92,13 +85,13 @@
 
     <!-- Header -->
     <header class="bg-black/50 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-white/10">
-        <div class="container mx-auto px-6 py-3">
+        <div class="container mx-auto px-4 sm:px-6 py-3">
             <nav class="flex items-center justify-between">
                 <a href="#" class="flex items-center space-x-2 md:space-x-3">
                     <!-- 使用GitHub图片的原始链接 -->
                     <img src="https://raw.githubusercontent.com/jtsgai/pdf-downloads/main/images/visionEnzhi%20logo.png" alt="Vision Enzhi Logo" class="h-12 md:h-14 w-auto">
                     <span class="text-lg md:text-xl font-bold tracking-wider text-white whitespace-nowrap">
-                        Vision Enzhi PTE LTD
+                        Vision Enzhi<span class="hidden md:inline"> PTE LTD</span>
                     </span>  
                 </a>
                 <div class="hidden md:flex items-center space-x-6 text-sm">
@@ -110,7 +103,7 @@
                     <a href="#team" class="hover:text-sky-400 transition-colors duration-300" :class="lang === 'en' ? '' : 'font-noto'"><span x-show="lang === 'en'">Team</span><span x-show="lang === 'zh'">团队</span></a>
                     <a href="#contact" class="hover:text-sky-400 transition-colors duration-300" :class="lang === 'en' ? '' : 'font-noto'"><span x-show="lang === 'en'">Contact</span><span x-show="lang === 'zh'">联系</span></a>
                 </div>
-                <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2 sm:space-x-4">
                     <button @click="lang = 'en'" :class="{ 'text-sky-400 font-bold': lang === 'en', 'text-gray-400': lang === 'zh' }" class="transition-colors">EN</button>
                     <span class="text-gray-500">/</span>
                     <button @click="lang = 'zh'" :class="{ 'text-sky-400 font-bold': lang === 'zh', 'text-gray-400': lang === 'en' }" class="transition-colors font-noto">中</button>
@@ -123,26 +116,26 @@
         <!-- Hero Section -->
         <section class="hero-bg h-screen flex items-center justify-center text-center pt-16">
             <div id="particles-js"></div>
-            <div class="content-wrapper container mx-auto px-6">
-                <h1 class="text-4xl md:text-7xl font-black uppercase tracking-wider" x-show="lang === 'en'" x-transition>
+            <div class="content-wrapper container mx-auto px-4 sm:px-6">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-wider" x-show="lang === 'en'" x-transition>
                     See the <span class="gradient-text">Future</span> of Commerce
                 </h1>
-                <h1 class="text-4xl md:text-7xl font-black font-noto tracking-wider text-pretty" x-show="lang === 'zh'" x-transition x-cloak>
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-black font-noto tracking-wider text-pretty" x-show="lang === 'zh'" x-transition x-cloak>
                     预见<span class="gradient-text">商业未来</span>
                 </h1>
-                <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-300 text-pretty" x-show="lang === 'en'" x-transition>
-                    We empower brands and creators with cutting-edge live streaming solutions across Southeast Asia.
+                <p class="mt-6 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 text-pretty" x-show="lang === 'en'" x-transition>
+                    We empower brands and creators with cutting-edge live streaming solutions <br class="hidden sm:block"> across Southeast Asia.
                 </p>
-                <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-300 font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>
+                <p class="mt-6 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>
                     我们以前沿的直播解决方案，赋能东南亚的品牌与创作者。
                 </p>
     
                 <div class="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-lg font-bold text-white btn-primary" :class="lang === 'en' ? '' : 'font-noto'">
+                    <a href="#services" class="w-full sm:w-auto px-8 py-3 sm:py-4 rounded-lg font-bold text-white btn-primary" :class="lang === 'en' ? '' : 'font-noto'">
                         <span x-show="lang === 'en'">For Businesses</span>
                         <span x-show="lang === 'zh'">商业合作</span>
                     </a>
-                    <a href="#academy" class="w-full sm:w-auto px-8 py-4 rounded-lg font-bold btn-secondary" :class="lang === 'en' ? '' : 'font-noto'">
+                    <a href="#academy" class="w-full sm:w-auto px-8 py-3 sm:py-4 rounded-lg font-bold btn-secondary" :class="lang === 'en' ? '' : 'font-noto'">
                         <span x-show="lang === 'en'">For Learners</span>
                         <span x-show="lang === 'zh'">学习直播</span>
                     </a>
@@ -152,11 +145,11 @@
 
         <!-- About Us Section -->
         <section id="about" class="py-20 md:py-32">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                     <div class="text-center md:text-left">
-                        <h2 class="text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Our Philosophy: <span class="gradient-text">Vision & Enzhi</span></h2>
-                        <h2 class="text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>我们的哲学: <span class="gradient-text">远景与恩智</span></h2>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Our Philosophy: <span class="gradient-text">Vision & Enzhi</span></h2>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>我们的哲学: <span class="gradient-text">远景与恩智</span></h2>
                         <p class="mt-6 text-gray-300 leading-relaxed text-pretty" x-show="lang === 'en'" x-transition>
                             The name 'Vision Enzhi' encapsulates our core belief. 'Vision' represents our commitment to a forward-thinking perspective, helping our partners see and seize the future of digital engagement. 'Enzhi' (恩智) reflects our foundation of gratitude and wisdom—we grow with our clients, sharing our expertise with a spirit of partnership and integrity.
                         </p>
@@ -164,8 +157,52 @@
                             “Vision Enzhi”（远景恩智）承载了我们的核心理念。“Vision”（远景）代表我们高瞻远瞩，助您看清并把握数字互动的未来。“Enzhi”（恩智）是我们的基石，寓意感恩与智慧——我们怀着感恩的心与客户共成长，以智慧和真诚分享我们的专业知识。
                         </p>
                     </div>
-                    <div class="flex justify-center">
-                       <img src="https://placehold.co/500x500/0a0a0a/38bdf8?text=SEA+Map" alt="Southeast Asia Expansion Vision" class="rounded-lg opacity-75">
+                    <!-- REPLACED SEA MAP with OUR PROCESS -->
+                    <div class="space-y-8">
+                        <h3 class="text-xl sm:text-2xl font-bold text-center md:text-left" x-show="lang === 'en'">Our Process</h3>
+                        <h3 class="text-xl sm:text-2xl font-bold text-center md:text-left font-noto" x-show="lang === 'zh'">我们的合作流程</h3>
+                        <div class="space-y-6">
+                            <!-- Step 1 -->
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-sky-500/10 flex items-center justify-center border-2 border-sky-500/30 font-bold text-sky-400">01</div>
+                                <div>
+                                    <h4 class="font-bold" x-show="lang === 'en'">Strategy & Consultation</h4>
+                                    <h4 class="font-bold font-noto" x-show="lang === 'zh'">策略沟通</h4>
+                                    <p class="text-gray-400 text-sm" x-show="lang === 'en'">We dive deep into your brand and goals to craft a bespoke live streaming strategy.</p>
+                                    <p class="text-gray-400 text-sm font-noto" x-show="lang === 'zh'">深入理解您的品牌与目标，量身定制直播策略。</p>
+                                </div>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-sky-500/10 flex items-center justify-center border-2 border-sky-500/30 font-bold text-sky-400">02</div>
+                                <div>
+                                    <h4 class="font-bold" x-show="lang === 'en'">Content & Production</h4>
+                                    <h4 class="font-bold font-noto" x-show="lang === 'zh'">内容制作</h4>
+                                    <p class="text-gray-400 text-sm" x-show="lang === 'en'">Our creative team produces engaging content and ensures a high-quality broadcast.</p>
+                                    <p class="text-gray-400 text-sm font-noto" x-show="lang === 'zh'">创意团队制作引人入胜的内容，并确保高质量的直播呈现。</p>
+                                </div>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-sky-500/10 flex items-center justify-center border-2 border-sky-500/30 font-bold text-sky-400">03</div>
+                                <div>
+                                    <h4 class="font-bold" x-show="lang === 'en'">Launch & Promotion</h4>
+                                    <h4 class="font-bold font-noto" x-show="lang === 'zh'">上线推广</h4>
+                                    <p class="text-gray-400 text-sm" x-show="lang === 'en'">We manage the live event and use targeted marketing to maximize your audience.</p>
+                                    <p class="text-gray-400 text-sm font-noto" x-show="lang === 'zh'">负责直播活动执行，并通过精准营销扩大观众覆盖面。</p>
+                                </div>
+                            </div>
+                             <!-- Step 4 -->
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-sky-500/10 flex items-center justify-center border-2 border-sky-500/30 font-bold text-sky-400">04</div>
+                                <div>
+                                    <h4 class="font-bold" x-show="lang === 'en'">Analysis & Optimization</h4>
+                                    <h4 class="font-bold font-noto" x-show="lang === 'zh'">复盘优化</h4>
+                                    <p class="text-gray-400 text-sm" x-show="lang === 'en'">We analyze the data to provide actionable insights and optimize for future growth.</p>
+                                    <p class="text-gray-400 text-sm font-noto" x-show="lang === 'zh'">分析数据，提供可行性洞察，为未来增长持续优化。</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -173,10 +210,11 @@
 
         <!-- Services Section -->
         <section id="services" class="py-20 md:py-32 bg-black/50">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Elevate Your Brand with <span class="gradient-text">Live Commerce</span></h2>
-                <h2 class="text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>
-                    <span class="gradient-text inline-block">直播电商</span><span class="gradient-text inline-block">提升您的品牌价值</span></h2>
+            <div class="container mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Elevate Your Brand with <span class="gradient-text">Live Commerce</span></h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>
+                    <span class="gradient-text inline-block">直播电商，</span><span class="gradient-text inline-block">提升您的品牌价值</span>
+                </h2>
                 <p class="mt-4 max-w-2xl mx-auto text-gray-400 text-pretty" x-show="lang === 'en'" x-transition>Solutions designed to maximize your reach and revenue.</p>
                 <p class="mt-4 max-w-2xl mx-auto text-gray-400 font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>为您的品牌影响力与营收增长量身打造解决方案。</p>
                 
@@ -206,31 +244,31 @@
             </div>
         </section>
 
-        <!-- NEW: Results Section -->
+        <!-- Results Section -->
         <section id="results" class="py-20 md:py-32">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Our Proven <span class="gradient-text">Results</span></h2>
-                <h2 class="text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>我们卓越的<span class="gradient-text">成功案例</span></h2>
+            <div class="container mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Our Proven <span class="gradient-text">Results</span></h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>我们卓越的<span class="gradient-text">成功案例</span></h2>
                 <p class="mt-4 max-w-2xl mx-auto text-gray-400 text-pretty" x-show="lang === 'en'" x-transition>Data speaks louder than words. We deliver tangible growth.</p>
                 <p class="mt-4 max-w-2xl mx-auto text-gray-400 font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>数据胜于雄辩。我们为伙伴带来切实的增长。</p>
                 
                 <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="card p-8 rounded-xl border-violet-500/50">
-                        <p class="text-5xl font-black gradient-text">300%+</p>
+                        <p class="text-4xl sm:text-5xl font-black gradient-text">300%+</p>
                         <p class="mt-2 font-semibold" x-show="lang === 'en'">Sales Growth</p>
                         <p class="mt-2 font-semibold font-noto" x-show="lang === 'zh'">销售额增长</p>
                         <p class="mt-1 text-sm text-gray-400 text-pretty" x-show="lang === 'en'">For a partner brand in a single campaign.</p>
                         <p class="mt-1 text-sm text-gray-400 font-noto text-pretty" x-show="lang === 'zh'">助力合作品牌单次活动</p>
                     </div>
                     <div class="card p-8 rounded-xl border-indigo-500/50">
-                        <p class="text-5xl font-black gradient-text">$1M+</p>
+                        <p class="text-4xl sm:text-5xl font-black gradient-text">$1M+</p>
                         <p class="mt-2 font-semibold" x-show="lang === 'en'">GMV Generated</p>
                         <p class="mt-2 font-semibold font-noto" x-show="lang === 'zh'">累计带货总额</p>
                          <p class="mt-1 text-sm text-gray-400 text-pretty" x-show="lang === 'en'">Across our managed live sessions.</p>
                         <p class="mt-1 text-sm text-gray-400 font-noto text-pretty" x-show="lang === 'zh'">通过我们运营的直播场次</p>
                     </div>
                     <div class="card p-8 rounded-xl border-sky-500/50">
-                        <p class="text-5xl font-black gradient-text">5M+</p>
+                        <p class="text-4xl sm:text-5xl font-black gradient-text">5M+</p>
                         <p class="mt-2 font-semibold" x-show="lang === 'en'">Live Views</p>
                         <p class="mt-2 font-semibold font-noto" x-show="lang === 'zh'">直播观看人次</p>
                         <p class="mt-1 text-sm text-gray-400 text-pretty" x-show="lang === 'en'">Reached for our clients' content.</p>
@@ -238,16 +276,35 @@
                     </div>
                 </div>
 
-                <div class="mt-20">
-                    <h3 class="text-lg font-semibold tracking-wider text-gray-400 uppercase" x-show="lang === 'en'">Trusted By Brands Across Industries</h3>
-                    <h3 class="text-lg font-semibold tracking-wider text-gray-400 uppercase font-noto" x-show="lang === 'zh'">深受各行业品牌信赖</h3>
-                    <div class="logo-wall mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center">
-                        <img src="https://placehold.co/120x60/0a0a0a/ffffff?text=BRAND+A" alt="Brand A Logo">
-                        <img src="https://placehold.co/120x60/0a0a0a/ffffff?text=BRAND+B" alt="Brand B Logo">
-                        <img src="https://placehold.co/120x60/0a0a0a/ffffff?text=BRAND+C" alt="Brand C Logo">
-                        <img src="https://placehold.co/120x60/0a0a0a/ffffff?text=BRAND+D" alt="Brand D Logo">
-                        <img src="https://placehold.co/120x60/0a0a0a/ffffff?text=BRAND+E" alt="Brand E Logo">
-                        <img src="https://placehold.co/120x60/0a0a0a/ffffff?text=BRAND+F" alt="Brand F Logo">
+                <!-- REPLACED LOGO WALL with TESTIMONIALS -->
+                <div class="mt-20 text-left">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-center text-pretty" x-show="lang === 'en'">What Our <span class="gradient-text">Clients Say</span></h3>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-center font-noto text-pretty" x-show="lang === 'zh'">听听我们的<span class="gradient-text">客户怎么说</span></h3>
+                    <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="card p-8 rounded-xl">
+                            <p class="text-gray-300 text-pretty" x-show="lang === 'en'">"Working with Vision Enzhi was a turning point for our brand in Singapore. Their strategic approach and professional execution led to a 300% increase in sales during our first campaign. They are true partners in growth."</p>
+                            <p class="text-gray-300 font-noto text-pretty" x-show="lang === 'zh'">“与Vision Enzhi合作是我们品牌在新加坡的转折点。他们的战略方法和专业执行力，让我们的首次活动销售额就增长了300%。他们是真正的增长伙伴。”</p>
+                            <div class="flex items-center mt-6">
+                                <img src="https://placehold.co/100x100/1f2937/a78bfa?text=JS" class="w-12 h-12 rounded-full" alt="Client Jane Smith">
+                                <div class="ml-4">
+                                    <p class="font-bold text-white">Jane Smith</p>
+                                    <p class="text-sm text-sky-400" x-show="lang === 'en'">Marketing Director, Fashion Forward SG</p>
+                                    <p class="text-sm text-sky-400 font-noto" x-show="lang === 'zh'">市场总监, Fashion Forward SG</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-8 rounded-xl">
+                            <p class="text-gray-300 text-pretty" x-show="lang === 'en'">"The team's deep understanding of the Southeast Asian market is unparalleled. They helped us navigate the complexities of cross-border e-commerce and successfully launched our cosmetics line in Malaysia and Thailand."</p>
+                            <p class="text-gray-300 font-noto text-pretty" x-show="lang === 'zh'">“该团队对东南亚市场的深刻理解是无与伦比的。他们帮助我们应对了跨境电商的复杂性，并成功地在马来西亚和泰国推出了我们的化妆品系列。”</p>
+                            <div class="flex items-center mt-6">
+                                <img src="https://placehold.co/100x100/1f2937/38bdf8?text=ML" class="w-12 h-12 rounded-full" alt="Client Michael Lee">
+                                <div class="ml-4">
+                                    <p class="font-bold text-white">Michael Lee</p>
+                                    <p class="text-sm text-sky-400" x-show="lang === 'en'">Founder, Aura Cosmetics</p>
+                                    <p class="text-sm text-sky-400 font-noto" x-show="lang === 'zh'">创始人, Aura Cosmetics</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -255,9 +312,9 @@
 
         <!-- Academy Section -->
         <section id="academy" class="py-20 md:py-32 bg-black/50">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Become a <span class="gradient-text">Live Streaming Pro</span></h2>
-                <h2 class="text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>成为专业的<span class="gradient-text">直播达人</span></h2>
+            <div class="container mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Become a <span class="gradient-text">Live Streaming Pro</span></h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>成为专业的<span class="gradient-text">直播达人</span></h2>
                 <p class="mt-4 max-w-2xl mx-auto text-gray-400 text-pretty" x-show="lang === 'en'" x-transition>Master the skills you need to succeed in the world of live streaming.</p>
                 <p class="mt-4 max-w-2xl mx-auto text-gray-400 font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>掌握核心技能，在直播世界中脱颖而出。</p>
                 
@@ -287,30 +344,30 @@
             </div>
         </section>
 
-        <!-- NEW: Student Success Section -->
+        <!-- Student Success Section -->
         <section id="student-success" class="py-20 md:py-32">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>From Learners to <span class="gradient-text">Earners</span></h2>
-                <h2 class="text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>从学员到<span class="gradient-text">创收者</span></h2>
+            <div class="container mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>From Learners to <span class="gradient-text">Earners</span></h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>从学员到<span class="gradient-text">创收者</span></h2>
                 <p class="mt-4 max-w-2xl mx-auto text-gray-400 text-pretty" x-show="lang === 'en'" x-transition>Our training empowers real people to achieve real results.</p>
                 <p class="mt-4 max-w-2xl mx-auto text-gray-400 font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>我们的培训赋能普通人创造真实成果。</p>
 
                 <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                    <div class="card p-8 rounded-xl flex flex-col sm:flex-row items-center gap-6">
-                        <img src="https://placehold.co/100x100/1f2937/a78bfa?text=Sarah" alt="Student Sarah" class="w-24 h-24 rounded-full flex-shrink-0">
+                    <div class="card p-6 sm:p-8 rounded-xl flex items-center gap-4 sm:gap-6">
+                        <img src="https://placehold.co/100x100/1f2937/a78bfa?text=Sarah" alt="Student Sarah" class="w-16 h-16 sm:w-24 sm:h-24 rounded-full flex-shrink-0">
                         <div>
-                            <p class="text-gray-300 text-pretty" x-show="lang === 'en'">"The course was a game-changer. I went from zero knowledge to running my own successful live stream for my boutique in just a month!"</p>
-                            <p class="text-gray-300 font-noto text-pretty" x-show="lang === 'zh'">“这门课程改变了一切。短短一个月内，我从零基础到为自己的服装店成功举办了直播！”</p>
+                            <p class="text-gray-300 text-pretty text-sm sm:text-base" x-show="lang === 'en'">"The course was a game-changer. I went from zero knowledge to running my own successful live stream for my boutique in just a month!"</p>
+                            <p class="text-gray-300 font-noto text-pretty text-sm sm:text-base" x-show="lang === 'zh'">“这门课程改变了一切。短短一个月内，我从零基础到为自己的服装店成功举办了直播！”</p>
                             <p class="mt-4 font-bold text-white">Sarah L.</p>
                             <p class="text-sm text-sky-400" x-show="lang === 'en'">Boutique Owner, +50% monthly revenue</p>
                             <p class="text-sm text-sky-400 font-noto" x-show="lang === 'zh'">服装店主，月收入增长50%</p>
                         </div>
                     </div>
-                     <div class="card p-8 rounded-xl flex flex-col sm:flex-row items-center gap-6">
-                        <img src="https://placehold.co/100x100/1f2937/38bdf8?text=David" alt="Student David" class="w-24 h-24 rounded-full flex-shrink-0">
+                     <div class="card p-6 sm:p-8 rounded-xl flex items-center gap-4 sm:gap-6">
+                        <img src="https://placehold.co/100x100/1f2937/38bdf8?text=David" alt="Student David" class="w-16 h-16 sm:w-24 sm:h-24 rounded-full flex-shrink-0">
                         <div>
-                            <p class="text-gray-300 text-pretty" x-show="lang === 'en'">"The instructors are true experts. Thanks to their guidance, I landed a full-time host position and my income has tripled."</p>
-                            <p class="text-gray-300 font-noto text-pretty" x-show="lang === 'zh'">“导师们是真正的专家。感谢他们的指导，我找到了一份全职主播的工作，收入翻了三倍。”</p>
+                            <p class="text-gray-300 text-pretty text-sm sm:text-base" x-show="lang === 'en'">"The instructors are true experts. Thanks to their guidance, I landed a full-time host position and my income has tripled."</p>
+                            <p class="text-gray-300 font-noto text-pretty text-sm sm:text-base" x-show="lang === 'zh'">“导师们是真正的专家。感谢他们的指导，我找到了一份全职主播的工作，收入翻了三倍。”</p>
                             <p class="mt-4 font-bold text-white">David C.</p>
                             <p class="text-sm text-sky-400" x-show="lang === 'en'">Full-time Live Host</p>
                             <p class="text-sm text-sky-400 font-noto" x-show="lang === 'zh'">全职主播</p>
@@ -328,14 +385,14 @@
 
         <!-- Team Section -->
         <section id="team" class="py-20 md:py-32 bg-black/50">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Meet The <span class="gradient-text">Experts</span></h2>
-                <h2 class="text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>认识我们的<span class="gradient-text">专家团队</span></h2>
+            <div class="container mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Meet The <span class="gradient-text">Experts</span></h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>认识我们的<span class="gradient-text">专家团队</span></h2>
                 
                 <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Team Member Card -->
                     <div class="team-card card rounded-xl p-6 text-center" x-data="{ showContact: false }" @mouseenter="showContact = true" @mouseleave="showContact = false">
-                        <img src="https://placehold.co/200x200/1f2937/a78bfa?text=Ivy" class="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-violet-400" alt="Ivy Wong">
+                        <img src="https://placehold.co/200x200/1f2937/a78bfa?text=Ivy" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 border-2 border-violet-400" alt="Ivy Wong">
                         <h3 class="text-xl font-bold">Ivy Wong</h3>
                         <p class="text-sky-400 text-sm" x-show="lang === 'en'" x-transition>Director & Brand Strategist</p>
                         <p class="text-sky-400 text-sm font-noto" x-show="lang === 'zh'" x-transition x-cloak>董事 & 品牌策略师</p>
@@ -346,7 +403,7 @@
                     </div>
                     <!-- Team Member Card -->
                     <div class="team-card card rounded-xl p-6 text-center" x-data="{ showContact: false }" @mouseenter="showContact = true" @mouseleave="showContact = false">
-                        <img src="https://placehold.co/200x200/1f2937/818cf8?text=Jerry" class="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-indigo-400" alt="Jerry Tuo">
+                        <img src="https://placehold.co/200x200/1f2937/818cf8?text=Jerry" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 border-2 border-indigo-400" alt="Jerry Tuo">
                         <h3 class="text-xl font-bold">Jerry Tuo</h3>
                         <p class="text-sky-400 text-sm" x-show="lang === 'en'" x-transition>CMO & Technical Advisor</p>
                         <p class="text-sky-400 text-sm font-noto" x-show="lang === 'zh'" x-transition x-cloak>首席营销官 & 技术顾问</p>
@@ -357,7 +414,7 @@
                     </div>
                     <!-- Team Member Card -->
                     <div class="team-card card rounded-xl p-6 text-center" x-data="{ showContact: false }" @mouseenter="showContact = true" @mouseleave="showContact = false">
-                        <img src="https://placehold.co/200x200/1f2937/38bdf8?text=Ryan" class="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-sky-400" alt="Ryan Luo">
+                        <img src="https://placehold.co/200x200/1f2937/38bdf8?text=Ryan" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 border-2 border-sky-400" alt="Ryan Luo">
                         <h3 class="text-xl font-bold">Ryan Luo</h3>
                         <p class="text-sky-400 text-sm" x-show="lang === 'en'" x-transition>COO & Gold Medal Instructor</p>
                         <p class="text-sky-400 text-sm font-noto" x-show="lang === 'zh'" x-transition x-cloak>首席运营官 & 金牌讲师</p>
@@ -368,7 +425,7 @@
                     </div>
                     <!-- Team Member Card -->
                     <div class="team-card card rounded-xl p-6 text-center" x-data="{ showContact: false }" @mouseenter="showContact = true" @mouseleave="showContact = false">
-                        <img src="https://placehold.co/200x200/1f2937/f472b6?text=Sherry" class="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-pink-400" alt="Sherry Gao">
+                        <img src="https://placehold.co/200x200/1f2937/f472b6?text=Sherry" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 border-2 border-pink-400" alt="Sherry Gao">
                         <h3 class="text-xl font-bold">Sherry Gao</h3>
                         <p class="text-sky-400 text-sm" x-show="lang === 'en'" x-transition>Consultant & E-commerce Specialist</p>
                         <p class="text-sky-400 text-sm font-noto" x-show="lang === 'zh'" x-transition x-cloak>顾问 & 电商专家</p>
@@ -384,10 +441,10 @@
 
     <!-- Footer -->
     <footer id="contact" class="py-20 border-t border-white/10">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Let's Create the <span class="gradient-text">Future Together</span></h2>
-                <h2 class="text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>让我们<span class="gradient-text">共创未来</span></h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-pretty" x-show="lang === 'en'" x-transition>Let's Create the <span class="gradient-text">Future Together</span></h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-noto text-pretty" x-show="lang === 'zh'" x-transition x-cloak>让我们<span class="gradient-text">共创未来</span></h2>
             </div>
             <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
                 <div class="space-y-2">
